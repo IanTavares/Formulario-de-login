@@ -17,22 +17,42 @@ form{
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
+label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #fff;
+  padding: 130px;
+  font-weight: 400;
+  font-size: 2rem;
+}
 form h3{
+  font-size: 1.5rem;
   text-align: center;
   color: #5f7cba;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 form input[type=text],
-form input[type=password]{
+form input[type=name]{
   width: 100%;
   height: 30px;
   border: 1px solid #ccc;
   padding-left: 10px;
   margin: 10px 0;
+  font-size: 0.9rem;
 }
+
 
 form input[type=submit]{
   width: 100%;
@@ -56,4 +76,64 @@ form input[type=text]:focus{
 form input[type=password]:focus{
   outline: 0;
 }
+
+
+button{
+  background: #333;
+  color: #ccc;
+  padding: 5px;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: 'Raleway', sans-serif;
+  transition: .6s;
+  overflow: hidden;
+  cursor: progress;
+}
+  button:focus{
+    outline: 0;
+  }
+
+  button:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    filter: blur(30px);
+    transform: translateX(-100px)  skewX(-15deg);
+  }
+  button:after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+  button:hover{
+    background: #337480;
+    cursor: pointer;
+    &:before{
+      transform: translateX(300px)  skewX(-15deg);  
+      opacity: 0.6;
+      transition: .7s;
+    }
+    button:after{
+      transform: translateX(300px) skewX(-15deg);  
+      opacity: 1;
+      transition: .7s;
+    }
+  }
 
